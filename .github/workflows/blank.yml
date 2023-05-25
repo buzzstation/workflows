@@ -1,0 +1,21 @@
+name: Autopopulate Contribution Graph
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  populate-contribution-graph:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Generate commits
+        run: |
+          for i in $(seq 1 365); do
+            echo "This is a commit" >> ./commit.txt
+            git add .
+            git commit -m "Commit $i"
+          done
+      - name: Push commits
+        run: |
+          git push
