@@ -1,4 +1,4 @@
-name: Autopopulate Contribution Graph
+name: Autopopulate Contribution
 
 on:
   schedule:
